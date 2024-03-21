@@ -1,0 +1,25 @@
+body {
+ font-family: Arial, sans-serif;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
+ margin: 0;
+}
+
+.container {
+ text-align: center;
+}
+
+button {
+ background-color: #0070FF;
+ border: none;
+ border-radius: 5px;
+ color: #fff;
+ padding: 10px 20px;
+ text-transform: uppercase;
+}
+
+#champion-build {
+ margin-top: 20px;
+}
