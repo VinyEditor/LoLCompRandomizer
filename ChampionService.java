@@ -29,6 +29,13 @@ public class ChampionService {
         return buildRepository.findById(id);
     }
 
+     public Champion createChampion(Champion champion) {
+            if (champion.getName() == null || champion.getName().isEmpty()) {
+                throw new IllegalArgumentException("O nome do campeão não pode ser nulo ou vazio.");
+            }
+            return championRepository.save(champion);
+        }
+
     public Build getRandomBuildForChampion(Long championId) {
         List<Build> builds = buildRepository.findByChampionId(championId);
         if (builds.isEmpty()) {
