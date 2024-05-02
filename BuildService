@@ -1,0 +1,23 @@
+public class BuildService {
+    @Autowired
+    private BuildRepository buildRepository;
+    @Autowired
+    private ChampionRepository championRepository;
+
+    public Build createBuild(Build build) {
+        validateBuild(build);
+        return buildRepository.save(build);
+    }
+
+    private void validateBuild(Build build) {
+        if (build.getChampionId() == null || championRepository.findById(build.getChampionId()).isEmpty()) {
+            throw new IllegalArgumentException("O ID do campeão não é válido.");
+        }
+        if (build.getItem1() == null || build.getItem1().isEmpty()) {
+            throw new IllegalArgumentException("O item 1 não pode ser nulo ou vazio.");
+        }
+        // Adicione mais validações conforme necessário para outros itens, trinket, etc.
+    }
+
+    // Outros métodos de serviço para a entidade Build
+}
